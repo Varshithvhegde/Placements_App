@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,13 +29,17 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Model> list;
     private JAdapter adapter;
     EditText search;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
         RecyclerView recyclerView = findViewById(R.id.IdRecyclerView);
         search = findViewById(R.id.searching);
         list = new ArrayList<>();
+
 //        Set a sample data to the list
 //        list.add(new Model("Varshith", 100000, "Google"));/**/
 //        show the data in the adapter
@@ -76,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
 //                here we are getting data from json object
                 JSONArray data = object.getJSONArray("data");
 //                here we are getting data from data object
-                Toast.makeText(this, data.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, data.length(), Toast.LENGTH_SHORT).show();
 //                jsonarray to object
+//                using while loop
+
                 for (int i = 1; i < data.length(); i++) {
                     JSONObject jsonObject = data.getJSONObject(i);
                     String name = jsonObject.getString("Name");
@@ -87,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
                     list.add(new Model(name, salary, company));
                     adapter.notifyDataSetChanged();
                 }
+                progressBar.setVisibility(ProgressBar.GONE);
+
+
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
