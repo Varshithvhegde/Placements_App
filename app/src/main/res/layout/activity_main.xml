@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#433567"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#433567"
+
+        app:cardElevation="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp">
+        <TextView
+            android:id="@+id/IdLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center_horizontal"
+            android:padding="9dp"
+            android:text="MITE Placements"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+
+        app:cardElevation="6dp"
+        app:cardCornerRadius="2dp">
+
+        <EditText
+            android:id="@+id/searching"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="12dp"
+            android:focusable="auto"
+            android:hint="search"
+            android:textColor="@color/black"
+            android:autofillHints=""
+            android:inputType="" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/IdRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/testing">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
